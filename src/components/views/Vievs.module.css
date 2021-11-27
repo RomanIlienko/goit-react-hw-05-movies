@@ -1,0 +1,88 @@
+.title {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    color: #03032e;
+    text-shadow: 4px 4px 12px rgba(126, 142, 175, 0.85);
+}
+
+.titleMovie {
+    composes: title;
+    margin-left: 0;
+}
+
+.titleMovieBlock {
+    composes: titleMovie;
+    margin-bottom: 8px;
+}
+
+.button {
+    width: 85px;
+    height: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.image {
+    width: 450px;
+    height: 500px;
+}
+
+.wrapper {
+    margin-left: 30px;
+}
+
+.container {
+    display: flex;
+}
+
+.link {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 700;
+    color: #03032e;
+    text-shadow: 4px 4px 12px rgba(126, 142, 175, 0.85);
+}
+
+.castList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    margin-top: 15px;
+}
+
+.actorName {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #03032e;
+    text-shadow: 4px 4px 12px rgba(126, 142, 175, 0.85);
+}
+
+.actorCharacter {
+    margin-bottom: 10px;
+}
+
+.actorWrapper {
+    width: 120px;
+    text-align: center;
+}
+
+.text {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #03032e;
+}
+
+.authorReviews {
+    composes: text;
+    margin-top: 20px;
+    font-size: 18px;
+    text-transform: capitalize;
+}

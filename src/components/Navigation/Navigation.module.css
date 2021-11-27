@@ -1,0 +1,12 @@
+.link {
+    display: inline-block;
+    text-decoration: none;
+    color:gray;
+    padding: 15px 30px;
+    font-size: 20px;
+}
+
+.activeLink {
+    composes: link;
+    color: dodgerblue;
+}
