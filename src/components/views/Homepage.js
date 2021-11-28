@@ -1,7 +1,8 @@
-import PropTypes from "prop-types";
+
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 import { FetchTrends } from "services/MoviesApi";
+import s from './Views.module.css'
 
 
 export default function Homepage() {
@@ -9,25 +10,23 @@ export default function Homepage() {
 
     useEffect(() => {
         FetchTrends().then((response) => {
-            setTrends(response.id)
-            console.log(response.results);
+            setTrends(response.results)
         })
     }, []);
     
     return (
         <>
-            <h1>Trending today</h1>
-            {trends && trends.map(trend => (
+            <h1 className={s.title}>Trending today</h1>
+            <ul>
+                {trends && trends.map(trend => (
                 <li key={trend.id}>
-                    <Link
+                    <Link className={s.link}
                      to={`/movies/${trend.id}`}>
                      {trend.title}
                     </Link>
                 </li>
             )) }
+            </ul>
         </>
     )
 }
-Homepage.propTypes = {
-  movies: PropTypes.array.isRequired,
-};

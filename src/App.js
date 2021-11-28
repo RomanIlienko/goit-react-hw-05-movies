@@ -5,7 +5,7 @@ import Homepage from 'components/views/Homepage';
 import Cast from 'components/views/Cast';
 import MovieDetailsPage from 'components/views/MovieDetailsPage';
 import Reviews from 'components/views/Reviews';
-import MoviesPage from 'components/views/MoviesPage';
+import MoviesPage from 'components/views/SearchMovies';
 import AppBar from 'components/AppBar/AppBar';
 import NotFoundView from 'components/views/NotFoundView';
 
@@ -24,8 +24,12 @@ export default function App() {
           
         </Route>
 
-        <Route path='/movies'>
+        <Route path='/movies' exact>
           <MoviesPage />
+        </Route>
+
+        <Route path='/movies/:movieId'>
+          <MovieDetailsPage/>
         </Route>
 
         <Route >
