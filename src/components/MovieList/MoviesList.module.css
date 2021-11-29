@@ -1,0 +1,16 @@
+.link {
+  display: block;
+  color: #03032e;
+  text-shadow: 4px 4px 12px rgba(126, 142, 175, 0.85);
+  font-size: 16px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-decoration: none;
+}
+.list {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.item {
+  list-style-type: disc;
+}

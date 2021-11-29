@@ -1,41 +1,41 @@
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from "react-router-dom";
+import "./App.css";
+import { lazy, Suspense } from "react";
+// import Appbar from "./Components/AppBar/AppBar";
+import Container from "./Components/Container";
+import Navigation from "./Components/Navigation";
+import Spinner from "./Components/Loader/Loader";
 
+const HomePage = lazy(() =>
+  import("./views/HomePage" /* webpackChunkName: "home-page" */)
+);
+const MovieDetails = lazy(() =>
+  import("./views/MovieDetails" /* webpackChunkName: "home-page-details" */)
+);
+const MoviesPage = lazy(() =>
+  import("./views/MoviesPage" /* webpackChunkName: "home-page" */)
+);
 
-import Homepage from 'components/views/Homepage';
-import Cast from 'components/views/Cast';
-import MovieDetailsPage from 'components/views/MovieDetailsPage';
-import Reviews from 'components/views/Reviews';
-import MoviesPage from 'components/views/SearchMovies';
-import AppBar from 'components/AppBar/AppBar';
-import NotFoundView from 'components/views/NotFoundView';
-
-import Container from 'components/Container';
-import './App.css';
-
-
-export default function App() {
+function App() {
   return (
     <Container>
-      <AppBar />
-
-      <Switch>
-        <Route path='/' exact>
-          <Homepage />
-          
-        </Route>
-
-        <Route path='/movies' exact>
-          <MoviesPage />
-        </Route>
-
-        <Route path='/movies/:movieId'>
-          <MovieDetailsPage/>
-        </Route>
-
-        <Route >
-          <NotFoundView />
-        </Route>
-      </Switch>
+      <Navigation />
+      <Suspense fallback={<Spinner />}>
+        <Switch>
+          <Route path="/movies/:movieId">
+            <MovieDetails />
+          </Route>
+          <Route path="/movies" exact>
+            <MoviesPage />
+          </Route>
+          <Route path="/" exact>
+            <HomePage />
+          </Route>
+          <Redirect to="/" />
+        </Switch>
+      </Suspense>
     </Container>
-  )
+  );
 }
+
+export default App;
